@@ -1,0 +1,16 @@
+**/node_modules
+**/public/packs
+**/vendor
+**/log
+**/tmp
+**/.git
+**/.env
+**/config/master.key
+**/.github
+**/deploy
+**/spec
+**/storage
+**/coverage
+
+!/tmp/pids/.keep
+!/tmp/sockets/.keep

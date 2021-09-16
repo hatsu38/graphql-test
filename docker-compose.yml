@@ -1,0 +1,61 @@
+version: 3
+services:
+  db:
+    image: postgres:13.4
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - 6432:5432
+    volumes:
+      # NOTE: 永続化するときにマウントするdir
+      - grqphql-test-db:/var/lib/postgresql/data
+    restart: always
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/development/rails/Dockerfile
+    # NOTE: Nginxを使わない場合は、rails s -b '0.0.0.0' にします
+    command: /bin/sh -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s"
+    env_file:
+      - .env
+    # .envよりもenvironmentに書いた環境変数が優先される
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: password
+      RAILS_ENV: development
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    tty: true # ポート待受していないコンテナがすぐ終了してしまうのを防ぐ
+    stdin_open: true # コンテナの標準に入力をオープンにする
+    volumes:
+      - .:/app
+      - tmp-sockets-volume:/app/tmp/sockets
+      - node_modules-volume:/app/node_modules
+      - bundle-volume:/app/vendor
+
+  # NOTE: Nginxを使わない場合はコメントアウトします
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/development/nginx/Dockerfile
+    # Nginxをforegroundで動かすため、daemonをoff
+    command: nginx -g 'daemon off;'
+    volumes:
+      - tmp-sockets-volume:/app/tmp/sockets
+    ports:
+      - 8000:8000
+    links:
+      - app
+
+volumes:
+  tmp-sockets-volume:
+  node_modules-volume:
+  bundle-volume:
+  grqphql-test-db:

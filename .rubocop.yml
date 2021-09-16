@@ -1,0 +1,105 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "log/**/*"
+    - "bin/**/*"
+    - "public/**/*"
+    - "lib/templates/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "lib/tasks/auto_annotate_models.rake"
+    - 'tmp/**/*'
+    - 'storage/**/*'
+
+  DisplayCopNames: true
+  NewCops: enable
+  TargetRubyVersion: 3.0
+
+Rails:
+  Enabled: true
+
+# Checks for proper usage of fail and raise.
+Style/SignalException:
+  Enabled: false
+
+# 引数の数は5以上で警告とする
+Metrics/ParameterLists:
+  Max: 5
+
+# メソッドの複雑さはチェックしない
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# AbcSizeはチェックしない
+Metrics/AbcSize:
+  Enabled: false
+
+# frozen_string_literal：trueは書かない
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# シンボルの配列の書き方の指定 :%iは使わない
+Style/SymbolArray:
+  Enabled: false
+
+# Module名::Class名の書き方の指定なし
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# 英語以外の文字があることを許可
+Style/AsciiComments:
+  Enabled: false
+
+# Gemはアルファベット順に並べなくていい
+Bundler/OrderedGems:
+  Enabled: false
+
+# ModuleやClassのドキュメントを書かなくてもいい
+Style/Documentation:
+  Enabled: false
+
+# do~endが空であることを今はSpecファイルだけ許可
+Lint/EmptyBlock:
+  Exclude:
+    - "spec/**/*"
+
+# 1行長さに指定なし
+Layout/LineLength:
+  Enabled: false
+
+# Block内の行数指定
+Metrics/BlockLength:
+  Exclude:
+    - "lib/tasks/**/*"
+    - "config/routes.rb"
+    - "config/environments/**"
+    - "spec/requests/**/**"
+
+# if/unless分を1行で書かなくてもいい
+Style/IfUnlessModifier:
+  Enabled: false
+
+# InverseOfは書かなくてもいい
+Rails/InverseOf:
+  Enabled: false
+
+# メソッド名は25文字まで
+Metrics/MethodLength:
+  Max: 25
+
+# 循環複雑度は10がMax
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# 日本語だと「〜の場合」になるので suffix でないと対応できない
+RSpec/ContextWording:
+  Enabled: false
+
+# RSpecのネストは4つまで
+RSpec/NestedGroups:
+  Max: 4
