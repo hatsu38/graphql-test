@@ -13,6 +13,10 @@ gem "jbuilder"
 gem "bootsnap", require: false
 gem "graphql" # RubyでGraphqlを扱う
 
+# 認証
+gem "devise"
+gem 'devise_token_auth' # DeviseにTokenを使う
+
 group :development, :test do
   # Graphqlの管理画面用
   gem "graphiql-rails"
