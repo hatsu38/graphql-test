@@ -11,8 +11,12 @@ gem 'webpacker'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootsnap', require: false
+gem 'graphql' # RubyでGraphqlを扱う
 
 group :development, :test do
+  # Graphqlの管理画面用
+  gem 'graphiql-rails'
+
   # 環境変数の管理
   gem 'dotenv-rails'
 
