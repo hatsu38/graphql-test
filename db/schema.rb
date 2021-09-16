@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_16_040956) do
+ActiveRecord::Schema.define(version: 2021_09_16_043416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_divisions", comment: "事業部", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "name", null: false, comment: "部署名"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_business_divisions_on_company_id"
+  end
 
   create_table "companies", comment: "会社", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -30,5 +38,6 @@ ActiveRecord::Schema.define(version: 2021_09_16_040956) do
     t.index ["subdomain"], name: "index_company_profiles_on_subdomain", unique: true
   end
 
+  add_foreign_key "business_divisions", "companies"
   add_foreign_key "company_profiles", "companies"
 end
