@@ -23,6 +23,13 @@ AllCops:
 Rails:
   Enabled: true
 
+
+##### Layout #####
+# 1行の長さ
+Layout/LineLength:
+  Exclude:
+    - "config/initializers/**.rb"
+
 ##### Lint #####
 # do~endが空であることを今はSpecファイルだけ許可
 Lint/EmptyBlock:
@@ -71,12 +78,16 @@ Style/Documentation:
 
 # シングルクオートではなく、ダブルクオートを使う
 Style/StringLiterals:
-  Enabled: true
   EnforcedStyle: double_quotes
 
 # if/unless分を1行で書かなくてもいい
 Style/IfUnlessModifier:
   Enabled: false
+
+# Procとしてシンボルを使う設定
+Style/SymbolProc:
+  Exclude:
+    - "db/migrate/**.rb"
 
 ##### Metrics #####
 # 引数の数は5以上で警告とする
@@ -98,3 +109,8 @@ Metrics/MethodLength:
 # 循環複雑度は10がMax
 Metrics/CyclomaticComplexity:
   Max: 10
+
+# AbiSize
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/**.rb"

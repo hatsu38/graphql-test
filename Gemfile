@@ -15,7 +15,7 @@ gem "graphql" # RubyでGraphqlを扱う
 
 # 認証
 gem "devise"
-gem 'devise_token_auth' # DeviseにTokenを使う
+gem "devise_token_auth" # DeviseにTokenを使う
 
 group :development, :test do
   # Graphqlの管理画面用

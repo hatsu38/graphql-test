@@ -1,27 +1,27 @@
 class DeviseTokenAuthCreateEmployeeAuthentications < ActiveRecord::Migration[6.1]
   def change
-
     create_table(:employee_authentications) do |t|
+      t.references :employee, null: false, foreign_key: true
       ## Required
-      t.string :provider, :null => false, :default => "email"
-      t.string :uid, :null => false, :default => ""
+      t.string :provider, null: false, default: "email", comment: "認証方法"
+      t.string :uid, null: false, default: ""
 
       ## Database authenticatable
-      t.string :encrypted_password, :null => false, :default => ""
+      t.string :encrypted_password, null: false, default: "", comment: "暗号化されたパスワード"
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
-      t.boolean  :allow_password_change, :default => false
+      t.string   :reset_password_token, comment: "パスワードリセットのためのToken"
+      t.datetime :reset_password_sent_at, comment: "パスワードリセットをした時刻"
+      t.boolean  :allow_password_change, null: false, default: false, comment: "パスワード変更が可能か"
 
       ## Rememberable
-      t.datetime :remember_created_at
+      t.datetime :remember_created_at, comment: "認証情報を保存した時刻"
 
       ## Confirmable
-      t.string   :confirmation_token
-      t.datetime :confirmed_at
-      t.datetime :confirmation_sent_at
-      t.string   :unconfirmed_email # Only if using reconfirmable
+      t.string   :confirmation_token, comment: "SignUp時に確認する際のToken"
+      t.datetime :confirmed_at, comment: "SignUp時に確認された時刻"
+      t.datetime :confirmation_sent_at, comment: "SignUpに必要な確認メールが送られた時刻"
+      t.string   :unconfirmed_email, comment: "まだ確認されていないEmail" # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, :default => 0, :null => false # Only if lock strategy is :failed_attempts
@@ -29,13 +29,13 @@ class DeviseTokenAuthCreateEmployeeAuthentications < ActiveRecord::Migration[6.1
       # t.datetime :locked_at
 
       ## User Info
-      t.string :name
-      t.string :nickname
-      t.string :image
-      t.string :email
+      # t.string :name
+      # t.string :nickname
+      # t.string :image
+      t.string :email, null: false, default: "", comment: "Email"
 
       ## Tokens
-      t.json :tokens
+      t.json :tokens, comment: "Token"
 
       t.timestamps
     end
