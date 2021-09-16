@@ -23,22 +23,32 @@ AllCops:
 Rails:
   Enabled: true
 
-# Checks for proper usage of fail and raise.
-Style/SignalException:
+##### Lint #####
+# do~endが空であることを今はSpecファイルだけ許可
+Lint/EmptyBlock:
+  Exclude:
+    - "spec/**/*"
+
+##### Rails #####
+# InverseOfは書かなくてもいい
+Rails/InverseOf:
   Enabled: false
 
-# 引数の数は5以上で警告とする
-Metrics/ParameterLists:
-  Max: 5
-
-# メソッドの複雑さはチェックしない
-Metrics/PerceivedComplexity:
+##### RSpec #####
+# 日本語だと「〜の場合」になるので suffix でないと対応できない
+RSpec/ContextWording:
   Enabled: false
 
-# AbcSizeはチェックしない
-Metrics/AbcSize:
+# RSpecのネストは4つまで
+RSpec/NestedGroups:
+  Max: 4
+
+##### Bundler #####
+# Gemはアルファベット順に並べなくていい
+Bundler/OrderedGems:
   Enabled: false
 
+##### Styles #####
 # frozen_string_literal：trueは書かない
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -55,27 +65,23 @@ Style/ClassAndModuleChildren:
 Style/AsciiComments:
   Enabled: false
 
-# Gemはアルファベット順に並べなくていい
-Bundler/OrderedGems:
-  Enabled: false
-
 # ModuleやClassのドキュメントを書かなくてもいい
 Style/Documentation:
   Enabled: false
-
-# do~endが空であることを今はSpecファイルだけ許可
-Lint/EmptyBlock:
-  Exclude:
-    - "spec/**/*"
 
 # シングルクオートではなく、ダブルクオートを使う
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
 
-# 1行長さに指定なし
-Layout/LineLength:
+# if/unless分を1行で書かなくてもいい
+Style/IfUnlessModifier:
   Enabled: false
+
+##### Metrics #####
+# 引数の数は5以上で警告とする
+Metrics/ParameterLists:
+  Max: 5
 
 # Block内の行数指定
 Metrics/BlockLength:
@@ -85,14 +91,6 @@ Metrics/BlockLength:
     - "config/environments/**"
     - "spec/requests/**/**"
 
-# if/unless分を1行で書かなくてもいい
-Style/IfUnlessModifier:
-  Enabled: false
-
-# InverseOfは書かなくてもいい
-Rails/InverseOf:
-  Enabled: false
-
 # メソッド名は25文字まで
 Metrics/MethodLength:
   Max: 25
@@ -100,11 +98,3 @@ Metrics/MethodLength:
 # 循環複雑度は10がMax
 Metrics/CyclomaticComplexity:
   Max: 10
-
-# 日本語だと「〜の場合」になるので suffix でないと対応できない
-RSpec/ContextWording:
-  Enabled: false
-
-# RSpecのネストは4つまで
-RSpec/NestedGroups:
-  Max: 4
