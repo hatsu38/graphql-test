@@ -35,9 +35,31 @@
 #  fk_rails_...  (employee_id => employees.id)
 #
 class EmployeeAuthentication < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   include DeviseTokenAuth::Concerns::User
+
+  # Constants
+
+  # Relations
+  belongs_to :employee
+
+  # Validations
+
+  # Callbacks
+  before_validation :set_user
+
+  # Delegates
+
+  # Scopes
+
+  # Class Methods
+
+  # Methods
+
+  private
+
+  def set_employee
+    self.employee = Employee.new if employee.nil?
+  end
 end

@@ -64,22 +64,22 @@ ActiveRecord::Schema.define(version: 2021_09_16_053519) do
 
   create_table "employee_profiles", comment: "従業員プロフィール", force: :cascade do |t|
     t.bigint "employee_id", null: false
+    t.bigint "business_division_id", null: false
     t.string "name", null: false, comment: "名前"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_division_id"], name: "index_employee_profiles_on_business_division_id"
     t.index ["employee_id"], name: "index_employee_profiles_on_employee_id"
   end
 
   create_table "employees", comment: "従業員", force: :cascade do |t|
-    t.bigint "business_division_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["business_division_id"], name: "index_employees_on_business_division_id"
   end
 
   add_foreign_key "business_divisions", "companies"
   add_foreign_key "company_profiles", "companies"
   add_foreign_key "employee_authentications", "employees"
+  add_foreign_key "employee_profiles", "business_divisions"
   add_foreign_key "employee_profiles", "employees"
-  add_foreign_key "employees", "business_divisions"
 end
