@@ -17,21 +17,19 @@
 #  fk_rails_...  (employee_id => employees.id)
 #
 class EmployeeProfile < ApplicationRecord
+  # Constants
 
-    # Constants
+  # Relations
 
-    # Relations
+  # Validations
 
-    # Validations
+  # Callbacks
 
-    # Callbacks
+  # Delegates
 
-    # Delegates
+  # Scopes
 
-    # Scopes
+  # Class Methods
 
-    # Class Methods
-
-    # Methods
-
-  end
+  # Methods
+end

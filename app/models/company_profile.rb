@@ -19,21 +19,19 @@
 #  fk_rails_...  (company_id => companies.id)
 #
 class CompanyProfile < ApplicationRecord
+  # Constants
 
-    # Constants
+  # Relations
 
-    # Relations
+  # Validations
 
-    # Validations
+  # Callbacks
 
-    # Callbacks
+  # Delegates
 
-    # Delegates
+  # Scopes
 
-    # Scopes
+  # Class Methods
 
-    # Class Methods
-
-    # Methods
-
-  end
+  # Methods
+end

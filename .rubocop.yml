@@ -68,6 +68,11 @@ Lint/EmptyBlock:
   Exclude:
     - "spec/**/*"
 
+# シングルクオートではなく、ダブルクオートを使う
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
 # 1行長さに指定なし
 Layout/LineLength:
   Enabled: false

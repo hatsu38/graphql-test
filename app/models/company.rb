@@ -7,21 +7,19 @@
 #  updated_at :datetime         not null
 #
 class Company < ApplicationRecord
+  # Constants
 
-    # Constants
+  # Relations
 
-    # Relations
+  # Validations
 
-    # Validations
+  # Callbacks
 
-    # Callbacks
+  # Delegates
 
-    # Delegates
+  # Scopes
 
-    # Scopes
+  # Class Methods
 
-    # Class Methods
-
-    # Methods
-
-  end
+  # Methods
+end
