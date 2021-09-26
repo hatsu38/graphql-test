@@ -8,11 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch('DB_NAME', 'graphql_test_development') %>
+  database: <%= ENV.fetch('DB_NAME', 'graphql_test_backend_development') %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch('DB_NAME', 'graphql_test_test') %>
+  database: <%= ENV.fetch('DB_NAME', 'graphql_test_backend_test') %>
 
 production:
   <<: *default

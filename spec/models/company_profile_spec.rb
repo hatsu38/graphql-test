@@ -2,12 +2,12 @@
 #
 # Table name: company_profiles
 #
-#  id                            :bigint           not null, primary key
-#  company_id                    :bigint           not null
-#  name(会社名)                  :string           not null
-#  subdomain(会社のサブドメイン) :string           not null
-#  created_at                    :datetime         not null
-#  updated_at                    :datetime         not null
+#  id                      :bigint           not null, primary key
+#  company_id              :bigint           not null
+#  name(会社名)            :string           not null
+#  subdomain(サブドメイン) :string           not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
 #
 # Indexes
 #

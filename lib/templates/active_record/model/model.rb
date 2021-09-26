@@ -1,21 +1,19 @@
 <% module_namespacing do -%>
-  class <%= class_name %> < <%= parent_class_name.classify %>
+class <%= class_name %> < <%= parent_class_name.classify %>
+  # Constants
 
-    # Constants
+  # Relations
 
-    # Relations
+  # Validations
 
-    # Validations
+  # Callbacks
 
-    # Callbacks
+  # Delegates
 
-    # Delegates
+  # Scopes
 
-    # Scopes
+  # Class Methods
 
-    # Class Methods
-
-    # Methods
-
-  end
+  # Methods
+end
 <% end -%>

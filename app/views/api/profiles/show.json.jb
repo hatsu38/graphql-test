@@ -1,0 +1,13 @@
+json = {
+  employee_id: @employee_profile&.employee_id,
+  name: @employee_profile&.name
+}
+
+json[:business_sections] = @business_sections.map do |business_section|
+  {
+    id: business_section.id,
+    name: business_section.business_section_profile.name
+  }
+end
+
+json

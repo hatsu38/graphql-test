@@ -2,11 +2,10 @@
 #
 # Table name: business_divisions
 #
-#  id           :bigint           not null, primary key
-#  company_id   :bigint           not null
-#  name(部署名) :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id         :bigint           not null, primary key
+#  company_id :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
@@ -18,7 +17,6 @@
 #
 FactoryBot.define do
   factory :business_division do
-    company { nil }
-    name { "MyString" }
+    association :company
   end
 end

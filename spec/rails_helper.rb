@@ -61,4 +61,16 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # FactoryBotと書かなくてもbuildやcreateができる
+  config.include FactoryBot::Syntax::Methods
+
+  # ログインを簡単にするHelper
+  config.include AuthHelper, type: :request
+
+  # JsonのBodyを取得するHelper
+  config.include Helpers::JsonHelpers, type: :request
+
+  # 現在時刻をいじる
+  config.include ActiveSupport::Testing::TimeHelpers
 end

@@ -1,4 +1,4 @@
-# grqphql-test
+# graphql-test-backend
 
 ## 環境
 - Language: Ruby 3.0.2
@@ -33,7 +33,7 @@ bin/rails s
 docker-compose build
 
 # Dockerコンテナを起動
-docker-compose up -d && docker attach grqphql-test_app_1
+docker-compose up -d && docker attach graphql-test-backend_app_1
 -> http://localhost:8000/
 
 # DB作成

@@ -2,11 +2,10 @@
 #
 # Table name: business_divisions
 #
-#  id           :bigint           not null, primary key
-#  company_id   :bigint           not null
-#  name(部署名) :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id         :bigint           not null, primary key
+#  company_id :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
@@ -20,7 +19,9 @@ class BusinessDivision < ApplicationRecord
   # Constants
 
   # Relations
-
+  belongs_to :company
+  has_one :business_division_profile, dependent: :restrict_with_error
+  has_many :employees, dependent: :restrict_with_error
   # Validations
 
   # Callbacks

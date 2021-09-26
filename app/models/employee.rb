@@ -10,7 +10,11 @@ class Employee < ApplicationRecord
   # Constants
 
   # Relations
-
+  has_one :employee_profile, dependent: :restrict_with_error
+  has_one :employee_authentication, dependent: :restrict_with_error
+  has_many :business_section_employees, dependent: :restrict_with_error
+  has_many :business_sections, through: :business_section_employees
+  has_many :employee_invitations, dependent: :nullify
   # Validations
 
   # Callbacks

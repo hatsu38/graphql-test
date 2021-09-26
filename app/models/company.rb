@@ -10,6 +10,8 @@ class Company < ApplicationRecord
   # Constants
 
   # Relations
+  has_one :company_profile, dependent: :restrict_with_error
+  has_many :business_divisions, dependent: :restrict_with_error
 
   # Validations
 

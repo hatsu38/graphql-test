@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
@@ -101,14 +103,17 @@ GEM
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
-    graphiql-rails (1.8.0)
-      railties
-      sprockets-rails
-    graphql (1.12.16)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.2)
-      activesupport (>= 5.0.0)
+    jb (0.8.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
+    letter_opener_web (1.4.0)
+      actionmailer (>= 3.2)
+      letter_opener (~> 1.0)
+      railties (>= 3.2)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -140,10 +145,13 @@ GEM
       pry (~> 0.13.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
+    public_suffix (4.0.6)
     puma (5.5.0)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-proxy (0.7.0)
@@ -234,6 +242,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     semantic_range (3.0.0)
     simplecov (0.21.2)
       docile (~> 1.1)
@@ -288,14 +299,14 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
-  graphiql-rails
-  graphql
-  jbuilder
+  jb
+  letter_opener_web
   listen
   pg
   pry-byebug
   pry-rails
   puma
+  rack-cors
   rack-mini-profiler
   rails (= 6.1.4.1)
   rspec-rails
@@ -304,6 +315,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails
+  seed-fu
   simplecov
   spring
   turbolinks

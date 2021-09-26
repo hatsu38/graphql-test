@@ -1,0 +1,10 @@
+<p>会員登録をおねがいします。</p>
+
+<p>有効期限: <%= @employee_invitation.token_expired_at %></p>
+<p>アドレス: <%= @employee_authentication.email %></p>
+
+<% path = "#{@signup_host}/sign_up/#{@employee_invitation.id}?token=#{@employee_invitation.token}" %>
+
+<p>会員登録画面：
+<%= link_to path, path %>
+</p>

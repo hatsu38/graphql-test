@@ -1,5 +1,5 @@
 {
-  "name": "grqphql-test",
+  "name": "graphql-test-backend",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

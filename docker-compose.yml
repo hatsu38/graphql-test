@@ -10,7 +10,7 @@ services:
       - 6432:5432
     volumes:
       # NOTE: 永続化するときにマウントするdir
-      - grqphql-test-db:/var/lib/postgresql/data
+      - graphql-test-db:/var/lib/postgresql/data
     restart: always
 
   app:
@@ -58,4 +58,4 @@ volumes:
   tmp-sockets-volume:
   node_modules-volume:
   bundle-volume:
-  grqphql-test-db:
+  graphql-test-db:

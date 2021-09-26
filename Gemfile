@@ -9,17 +9,20 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker"
 gem "turbolinks"
-gem "jbuilder"
 gem "bootsnap", require: false
-gem "graphql" # RubyでGraphqlを扱う
+
+# JsonのRender
+gem "jb"
 
 # 認証
 gem "devise"
-gem "devise_token_auth" # DeviseにTokenを使う
+gem "devise_token_auth"
+
+gem "rack-cors" # CORS設定
 
 group :development, :test do
-  # Graphqlの管理画面用
-  gem "graphiql-rails"
+  # 初期データ投入
+  gem "seed-fu"
 
   # 環境変数の管理
   gem "dotenv-rails"
@@ -46,6 +49,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "letter_opener_web" # メールをローカルで確認する
   gem "simplecov", require: false # Testカバレッジを計測
   gem "annotate" # Table情報をModelに自動で追記
   gem "web-console"
