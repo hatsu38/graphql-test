@@ -58,8 +58,7 @@ group :development do
   gem "rack-mini-profiler"
   gem "listen"
   gem "spring"
-  gem 'graphiql-rails' # GraphQLの管理画面
+  gem "graphiql-rails" # GraphQLの管理画面
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-

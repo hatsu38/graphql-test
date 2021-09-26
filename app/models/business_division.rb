@@ -21,7 +21,7 @@ class BusinessDivision < ApplicationRecord
   # Relations
   belongs_to :company
   has_one :business_division_profile, dependent: :restrict_with_error
-  has_many :employees, dependent: :restrict_with_error
+  has_many :business_sections, dependent: :restrict_with_error
   # Validations
 
   # Callbacks
