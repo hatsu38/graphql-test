@@ -20,6 +20,8 @@ gem "devise_token_auth"
 
 gem "rack-cors" # CORS設定
 
+gem "graphql"
+
 group :development, :test do
   # 初期データ投入
   gem "seed-fu"
@@ -56,6 +58,7 @@ group :development do
   gem "rack-mini-profiler"
   gem "listen"
   gem "spring"
+  gem "graphiql-rails" # GraphQLの管理画面
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
