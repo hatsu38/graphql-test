@@ -29,6 +29,11 @@ Rails:
 Layout/LineLength:
   Exclude:
     - "config/initializers/**.rb"
+    - "db/migrate/**.rb"
+
+# 複数行のメソッドチェーンはインデントを1つ深くして書く
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
 
 ##### Lint #####
 # do~endが空であることを今はSpecファイルだけ許可
@@ -49,6 +54,14 @@ RSpec/ContextWording:
 # RSpecのネストは4つまで
 RSpec/NestedGroups:
   Max: 4
+
+# it do~endでテストする数
+RSpec/MultipleExpectations:
+  Max: 5
+
+# it do~end内の行数
+RSpec/ExampleLength:
+  Max: 10
 
 ##### Bundler #####
 # Gemはアルファベット順に並べなくていい
@@ -112,5 +125,6 @@ Metrics/CyclomaticComplexity:
 
 # AbiSize
 Metrics/AbcSize:
+  Max: 20
   Exclude:
     - "db/migrate/**.rb"
