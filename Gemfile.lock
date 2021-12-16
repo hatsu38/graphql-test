@@ -106,7 +106,7 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (1.12.18)
+    graphql (1.13.2)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jb (0.8.0)
